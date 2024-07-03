@@ -1,0 +1,41 @@
+{
+  "message_data": [
+    {
+      "sensor_id": "a2b3a4d9-69c3-482e-8b53-b9583fe0f921",
+      "name": "string",
+      "connected": true,
+      "lane_direction": [
+        0,
+        null
+      ],
+      "direction": 0,
+      "data": [
+        {
+          "range_end": "string",
+          "range_start": "string",
+          "range_value": 0,
+          "lanes": [
+            {
+              "lane": 0,
+              "volume": 0,
+              "class_0": 0,
+              "class_1": 0,
+              "class_2": 0,
+              "class_3": 0,
+              "class_4": 0,
+              "gap_avg": 0,
+              "gap_sum": 0,
+              "speed_avg": 0,
+              "headway_avg": 0,
+              "headway_sum": 0,
+              "speed85_avg": 0,
+              "occupancy_per": "string",
+              "occupancy_prc": 0,
+              "occupancy_sum": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

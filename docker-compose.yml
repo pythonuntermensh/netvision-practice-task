@@ -44,7 +44,7 @@ services:
     build:
       context: .
     ports:
-      - '8080:8080'
+      - '8080:8081'
     depends_on:
       - kafka
     networks:
@@ -52,7 +52,7 @@ services:
     environment:
       kafka_topic-name-stats: 'border.statistics'
       kafka_topic-name-detectors: 'traffic.hardware.detectors'
-
+      SPRING_KAFKA_PRODUCER_BOOTSTRAPSERVERS: kafka:9092
 
 networks:
   restapi:

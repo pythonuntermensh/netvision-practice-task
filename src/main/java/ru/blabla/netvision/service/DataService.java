@@ -20,24 +20,22 @@ public class DataService {
 
     private final ObjectMapper objectMapper;
 
-    private final KafkaTemplate<String, TrafficHardwareDetectorRequest> detectorsKafkaTemplate;
-    private final KafkaTemplate<String, BorderStatisticsRequest> statsKafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @Autowired
-    public DataService(ObjectMapper objectMapper, KafkaTemplate<String, TrafficHardwareDetectorRequest> detectorsKafkaTemplate, KafkaTemplate<String, BorderStatisticsRequest> statsKafkaTemplate) {
+    public DataService(ObjectMapper objectMapper, KafkaTemplate<String, Object> kafkaTemplate) {
         this.objectMapper = objectMapper;
-        this.detectorsKafkaTemplate = detectorsKafkaTemplate;
-        this.statsKafkaTemplate = statsKafkaTemplate;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     @SneakyThrows
     public void sendDataToStatistics(BorderStatisticsRequest dataRequest) {
-        statsKafkaTemplate.send(statisticsTopicName, dataRequest);
+        kafkaTemplate.send(statisticsTopicName, dataRequest);
     }
 
     @SneakyThrows
     public void sendDataToDetectors(TrafficHardwareDetectorRequest dataRequest) {
-        detectorsKafkaTemplate.send(detectorsTopicName, dataRequest);
+        kafkaTemplate.send(detectorsTopicName, dataRequest);
     }
 
     //objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dataRequest)
