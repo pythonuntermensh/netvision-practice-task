@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -19,7 +18,7 @@ public class TrafficHardwareDetectorRequest {
     @NoArgsConstructor
     @AllArgsConstructor
     private static class MessageData {
-        private UUID sensor_id;
+        private String sensor_id;
         private String name;
         private Boolean connected;
         private List<Integer> lane_direction;

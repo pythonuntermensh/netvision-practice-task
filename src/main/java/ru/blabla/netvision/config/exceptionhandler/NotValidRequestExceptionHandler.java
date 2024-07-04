@@ -27,7 +27,7 @@ public class NotValidRequestExceptionHandler {
         Map<String, String> result = new HashMap<>();
         result.put("ERROR", ex.getMessage());
         result.put("DESCRIPTION", "Invalid JSON or there is a lack of necessary data.");
-        log.error("ERROR: " + ex.getMessage() + "\n" + "DESCRIPTION: Invalid JSON or there is a lack of necessary data.");
+        log.error("ERROR MSG: " + ex.getMessage());
         return ResponseEntity.badRequest().body(result);
     }
 }
