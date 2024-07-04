@@ -1,6 +1,5 @@
 package ru.blabla.netvision.dto;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 

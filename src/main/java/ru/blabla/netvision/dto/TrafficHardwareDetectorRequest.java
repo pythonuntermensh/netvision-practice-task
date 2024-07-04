@@ -1,9 +1,7 @@
 package ru.blabla.netvision.dto;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +22,7 @@ public class TrafficHardwareDetectorRequest {
         private UUID sensor_id;
         private String name;
         private Boolean connected;
-        private List<Float> lane_direction;
+        private List<Integer> lane_direction;
         private Integer direction;
         private List<RangeData> data;
     }
@@ -33,7 +31,6 @@ public class TrafficHardwareDetectorRequest {
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    @Valid
     private static class RangeData {
         private String range_end;
         private String range_start;
@@ -45,11 +42,11 @@ public class TrafficHardwareDetectorRequest {
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    @Valid
     private static class Lane {
         private Integer lane;
         private Integer volume;
         private Integer class_0;
+        private Integer class_1;
         private Integer class_2;
         private Integer class_3;
         private Integer class_4;
