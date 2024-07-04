@@ -1,5 +1,6 @@
 package ru.blabla.netvision.config.exceptionhandler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Slf4j
 @ControllerAdvice
 public class NotValidRequestExceptionHandler {
 
@@ -26,6 +27,7 @@ public class NotValidRequestExceptionHandler {
         Map<String, String> result = new HashMap<>();
         result.put("ERROR", ex.getMessage());
         result.put("DESCRIPTION", "Invalid JSON or there is a lack of necessary data.");
+        log.error("ERROR: " + ex.getMessage() + "\n" + "DESCRIPTION: Invalid JSON or there is a lack of necessary data.");
         return ResponseEntity.badRequest().body(result);
     }
 }
