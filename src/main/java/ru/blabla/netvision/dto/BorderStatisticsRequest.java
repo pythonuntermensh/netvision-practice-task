@@ -1,7 +1,13 @@
 package ru.blabla.netvision.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.deser.std.StringDeserializer;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import ru.blabla.netvision.dto.borderstatistics.Data;
+import ru.blabla.netvision.util.CustomStringDeserializer;
 
 import java.util.List;
 
@@ -11,27 +17,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BorderStatisticsRequest {
     @NotNull
+    @JsonDeserialize(using = CustomStringDeserializer.class)
     private String id_border;
     @NotNull
-    private List<Data> data;
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    private static class Data {
-        private String id_car;
-        private String time;
-    }
-
+    @NotEmpty
+    @Valid
+    private List<@NotNull Data> data;
 }
-
-//        {
-//        "id_border": "string",
-//          "data": [
-//              {
-//                  "id_car": "string",
-//                  "time": "string"
-//              }
-//          ]
-//        }

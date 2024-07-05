@@ -26,7 +26,7 @@ public class DataControllerPerformanceSyncTest {
     public void dataControllerStatsTest_syncPerformanceTest() throws Exception {
         LocalTime start = LocalTime.now();
         for (int i = 0; i < 100; i++) {
-            mockMvc.perform(post("/data/stats")
+            mockMvc.perform(post("/push/exchange/passages_statistic")
                     .content(resourceLoader.getResource("classpath:stats.json").getContentAsByteArray())
                     .contentType("application/json")
             ).andExpect(status().isOk());
@@ -38,7 +38,7 @@ public class DataControllerPerformanceSyncTest {
     public void dataControllerDetectorsTest_syncPerformanceTest() throws Exception {
         LocalTime start = LocalTime.now();
         for (int i = 0; i < 100; i++) {
-            mockMvc.perform(post("/data/detectors")
+            mockMvc.perform(post("/push/exchange/passages")
                     .content(resourceLoader.getResource("classpath:detectors.json").getContentAsByteArray())
                     .contentType("application/json")
             ).andExpect(status().isOk());

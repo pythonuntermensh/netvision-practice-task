@@ -53,6 +53,7 @@ services:
       kafka_topic-name-stats: 'border.statistics'
       kafka_topic-name-detectors: 'traffic.hardware.detectors'
       SPRING_KAFKA_PRODUCER_BOOTSTRAPSERVERS: kafka:9092
+      SPRING_KAFKA_BOOTSTRAPSERVERS: kafka:9092
 
 networks:
   restapi:
