@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.blabla.netvision.util.CustomBooleanDeserializer;
 import ru.blabla.netvision.util.CustomIntegerDeserializer;
+import ru.blabla.netvision.util.CustomIntegerListDeserializer;
 import ru.blabla.netvision.util.CustomStringDeserializer;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class MessageData {
     @JsonDeserialize(using = CustomBooleanDeserializer.class)
     private Boolean connected;
     @NotNull
+    @JsonDeserialize(using = CustomIntegerListDeserializer.class)
     private List<Integer> lane_direction;
     @NotNull
     @JsonDeserialize(using = CustomIntegerDeserializer.class)
