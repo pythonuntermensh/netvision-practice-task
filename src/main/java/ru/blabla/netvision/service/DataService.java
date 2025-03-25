@@ -37,6 +37,4 @@ public class DataService {
     public void sendDataToDetectors(TrafficHardwareDetectorRequest dataRequest) {
         kafkaTemplate.send(detectorsTopicName, dataRequest);
     }
-
-    //objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dataRequest)
 }
